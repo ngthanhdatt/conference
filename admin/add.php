@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $conn->exec($sql_create);
     $admin_id = $conn->lastInsertId();
     $conn = null;
-    header('location: http://localhost/baitap3/admin/display.php',true);
+    header('location: http://localhost/conference/conference/admin/display.php',true);
 }
 
 ?>

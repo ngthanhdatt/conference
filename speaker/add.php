@@ -1,31 +1,31 @@
 <?php
 $id = '';
-$name = '';
+$name  = '';
 $phone = '';
 $email = '';
-$ticker = '';
+$pro = '';
+$CCCC = '';
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
-    if(isset($_GET['id'])) {$id = $_GET['id'];}
+{   
+    include '../database/database.php';
     if(isset($_POST['name'])) {$name = $_POST['name'];}
     if(isset($_POST['phone'])) {$phone = $_POST['phone'];}
     if(isset($_POST['email'])) {$email = $_POST['email'];}
-    if(isset($_POST['ticker'])) {$ticker = $_POST['ticker'];}
+    if(isset($_POST['professional'])) {$pro = $_POST['professional'];}
+    if(isset($_POST['CCCC'])) {$CCCC = $_POST['CCCC'];}
+    
 
-    include_once '../database/database.php';
-    $sql = "UPDATE admin  
-            SET ID = '$id',
-                name = '$name',
-                phone = '$phone',
-                email = '$email',
-                ticker = '$ticker
-            WHERE ID = '$id'";
-    $process = $conn->prepare($sql);
-    $process->execute();
+
+    $sql_create = "INSERT INTO speaker (name, phone, email, professional,CCCC)
+                VALUES ('$name','$phone','$email','$pro','$CCCC')";
+    $conn->exec($sql_create);
+    $admin_id = $conn->lastInsertId();
     $conn = null;
-    header('location: http://localhost/conference/conference/customer/display.php',true);
-
+    header('location: http://localhost/conference/conference/speaker/display.php',true);
 }
+
 ?>
 <?php include '../layout/header.php'?>
 <section class="content">
@@ -34,15 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
           <div class="col-md-6" style="margin:0 auto">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Sửa khách tham dự</h3>
+                <h3 class="card-title">Thêm diễn giả</h3>
               </div>
               
               <form  action="" method="post" enctype="multipart/form-data">
                 <div class="card-body">
-                <div class="form-group">
-                <label for="exampleInputUsername">ID</label>
-                <?php if(isset($_GET['id'])) {$id = $_GET['id']; echo $id;} ?>
-                  </div>  
                     <div class="form-group">
                 <label for="exampleInputName">Tên đầy đủ</label>
                   <input type="text" class="form-control"  placeholder="Tên đầy đủ" name="name">
@@ -56,8 +52,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                   <input type="email" class="form-control"  placeholder="Email" name="email">
                 </div>
                 <div class="form-group">
-                <label for="exampleInputName">Loại Vé</label>
-                  <input type="text" class="form-control"  placeholder="Loại vé" name="ticker">
+                <label for="exampleInputEmail1">Chuyên Ngành</label>
+                  <input type="text" class="form-control"  placeholder="Chuyên ngành" name="professional">
+                </div>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Số căn cước công dân</label>
+                  <input type="text" class="form-control"  placeholder="Số căn cước" name="CCCC">
                 </div>
                 </div>
                 <div class="card-footer">
@@ -69,4 +69,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       </div>
 </section>
 <?php include '../layout/footer.php'?>
+
+
 

@@ -187,6 +187,26 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview menu-open">
+            <a class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                  Diễn giả                  
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../speaker/display.php" class="nav-link">
+                  <p>Danh sách</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../speaker/add.php" class="nav-link">
+                  <p>Thêm</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </div>

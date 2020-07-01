@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $process = $conn->prepare($sql);
     $process->execute();
     $conn = null;
-    header('location: http://localhost/baitap3/admin/display.php',true);
+    header('location: http://localhost/conference/conference/admin/display.php',true);
 
 }
 ?>
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
           <div class="col-md-6" style="margin:0 auto">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Thêm quản lý</h3>
+                <h3 class="card-title">Sửa quản lý</h3>
               </div>
               
               <form  action="" method="post" enctype="multipart/form-data">

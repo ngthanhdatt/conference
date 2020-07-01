@@ -6,6 +6,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $sql_delete = "DELETE FROM admin WHERE ID = $id";
     $conn->exec($sql_delete);
     $conn = null;
-    header('location: http://localhost/baitap3/admin/display.php',true);
+    header('location: http://localhost/conference/conference/admin/display.php',true);
 }
 ?>
