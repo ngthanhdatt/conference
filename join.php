@@ -3,7 +3,7 @@
       <div class="section-intro text-center pb-98px">
         <p class="section-intro__title">THAM GIA HỘI THẢO</p>
         <h2 class="primary-text">TẠI SAO BẠN NÊN THAM GIA</h2>
-        <img src="img/home/section-style.png" alt="">
+        <img src="statics/img/home/section-style.png" alt="">
       </div>
 
       <div class="d-lg-flex justify-content-between">
@@ -33,8 +33,7 @@
       </div>
       <div class="row mt-5">
         <div class="col-12 text-center">
-          <a class="button mr-3 mb-2" href="#">Tìm Hiểu Thêm</a>
-          <a class="button mb-2" href="#">Mua Vé</a>
+          <a class="button mr-3 mb-2" href="a">Tìm Hiểu Thêm</a>
         </div>
       </div>
     </div>

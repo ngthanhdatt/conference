@@ -22,14 +22,14 @@
     <div class='wrapper'>
     <?php
 			// include('database/database.php');
-            include('header.php');
+            include('nav.php');
             include('banner.php');
             include('join.php');
             include('speaker.php');
             include('schedule.php');
             include('price.php');
             include('sponsor.php');
-			include('footer.php');
+			      include('footer.php');
         ?>
         
         <script src="statics/vendors/jquery/jquery-3.2.1.min.js"></script>

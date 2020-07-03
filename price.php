@@ -3,7 +3,7 @@
       <div class="section-intro text-center pb-98px">
         <p class="section-intro__title">Join the event</p>
         <h2 class="primary-text">Choose Your Ticket</h2>
-        <img src="img/home/section-style.png" alt="">
+        <img src="statics/img/home/section-style.png" alt="">
       </div>
 
       <div class="row">
@@ -32,7 +32,7 @@
               </li>
             </ul>
             <div class="priceTable-footer">
-              <a class="button" href="#">Buy Now</a>
+              <a class="button" href="contact.php">Buy Now</a>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@
               </li>
             </ul>
             <div class="priceTable-footer">
-              <a class="button" href="#">Buy Now</a>
+              <a class="button" href="contact.php">Buy Now</a>
             </div>
           </div>
         </div>
@@ -92,10 +92,10 @@
               </li>
             </ul>
             <div class="priceTable-footer">
-              <a class="button" href="#">Buy Now</a>
+              <a class="button" href="contact.php">Buy Now</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+</section>

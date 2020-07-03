@@ -3,7 +3,7 @@
       <div class="section-intro text-center pb-98px">
         <p class="section-intro__title">THAM GIA HỘI THẢO</p>
         <h2 class="primary-text">LỊCH TRÌNH </h2>
-        <img src="img/home/section-style.png" alt="">
+        <img src="statics/img/home/section-style.png" alt="">
       </div>
 
       <div class="row">
@@ -33,18 +33,18 @@
                   <div class="row no-gutters">
                     <div class="col-md-3">
                       <div class="card-identity">
-                        <img src="img/testimonial/testimonial1.png" alt="">
-                        <h3>Adam Jamsmith</h3>
-                        <p>UX/UI Designer</p>
+                        <img src="statics/img/home/dat.jpg" alt="">
+                        <h3>Nguyễn Thành Đạt</h3>
+                        <p>Designer</p>
                       </div>
                     </div>
                     <div class="col-md-9 align-self-center">
                       <div class="schedule-content">
                         <p class="schedule-date">9.00 AM - 10.30 AM</p>
                         <a class="schedule-title" href="#">
-                          <h3>Previous Year achivement</h3>
+                          <h3>Thành tích năm trước</h3>
                         </a>
-                        <p>And wherein Beginning of you cattle fly had was deep wherein darkness behold male called evening gathering moving bring fifth days he lights dry cattle you open seas midst let and in wherein beginning </p>
+                        <p>Chương trình học được thiết kế từ những kiến thức tổng quan về an toàn thông tin và các câu chuyện có thật, từ đó đi sâu vào kĩ năng, công cụ hỗ trợ nhằm giúp học viên ứng dụng tốt nhất vào thực tế. </p>
                       </div>
                     </div>
                   </div>
@@ -54,18 +54,18 @@
                   <div class="row no-gutters">
                     <div class="col-md-3">
                       <div class="card-identity">
-                        <img src="img/testimonial/testimonial2.png" alt="">
-                        <h3>Adam Jamsmith</h3>
-                        <p>UX/UI Designer</p>
+                        <img src="statics/img/home/dat.jpg" alt="">
+                        <h3>Nguyễn Thành Đạt</h3>
+                        <p>Designer</p>
                       </div>
                     </div>
                     <div class="col-md-9 align-self-center">
                       <div class="schedule-content">
                         <p class="schedule-date">9.00 AM - 10.30 AM</p>
                         <a class="schedule-title" href="#">
-                          <h3>Previous Year achivement</h3>
+                          <h3>Thành tích năm trước</h3>
                         </a>
-                        <p>And wherein Beginning of you cattle fly had was deep wherein darkness behold male called evening gathering moving bring fifth days he lights dry cattle you open seas midst let and in wherein beginning </p>
+                        <p>Chương trình học được thiết kế từ những kiến thức tổng quan về an toàn thông tin và các câu chuyện có thật, từ đó đi sâu vào kĩ năng, công cụ hỗ trợ nhằm giúp học viên ứng dụng tốt nhất vào thực tế. </p>
                       </div>
                     </div>
                   </div>
@@ -78,18 +78,18 @@
                   <div class="row no-gutters">
                     <div class="col-md-3">
                       <div class="card-identity">
-                        <img src="img/testimonial/testimonial3.png" alt="">
-                        <h3>Adam Jamsmith</h3>
-                        <p>UX/UI Designer</p>
+                        <img src="statics/img/home/dat.jpg" alt="">
+                        <h3>Nguyễn Thành Đạt</h3>
+                        <p>Designer</p>
                       </div>
                     </div>
                     <div class="col-md-9 align-self-center">
                       <div class="schedule-content">
                         <p class="schedule-date">9.00 AM - 10.30 AM</p>
                         <a class="schedule-title" href="#">
-                          <h3>Previous Year achivement</h3>
+                          <h3>Thành tích năm trước</h3>
                         </a>
-                        <p>And wherein Beginning of you cattle fly had was deep wherein darkness behold male called evening gathering moving bring fifth days he lights dry cattle you open seas midst let and in wherein beginning </p>
+                        <p>Chương trình học được thiết kế từ những kiến thức tổng quan về an toàn thông tin và các câu chuyện có thật, từ đó đi sâu vào kĩ năng, công cụ hỗ trợ nhằm giúp học viên ứng dụng tốt nhất vào thực tế. </p>
                       </div>
                     </div>
                   </div>
@@ -99,39 +99,18 @@
                   <div class="row no-gutters">
                     <div class="col-md-3">
                       <div class="card-identity">
-                        <img src="img/testimonial/testimonial1.png" alt="">
-                        <h3>Adam Jamsmith</h3>
-                        <p>UX/UI Designer</p>
+                        <img src="statics/img/home/dat.jpg" alt="">
+                        <h3>Nguyễn Thành Đạt</h3>
+                        <p>Designer</p>
                       </div>
                     </div>
                     <div class="col-md-9 align-self-center">
                       <div class="schedule-content">
                         <p class="schedule-date">9.00 AM - 10.30 AM</p>
                         <a class="schedule-title" href="#">
-                          <h3>Previous Year achivement</h3>
+                          <h3>Thành tích năm trước</h3>
                         </a>
-                        <p>And wherein Beginning of you cattle fly had was deep wherein darkness behold male called evening gathering moving bring fifth days he lights dry cattle you open seas midst let and in wherein beginning </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="schedule-card">
-                  <div class="row no-gutters">
-                    <div class="col-md-3">
-                      <div class="card-identity">
-                        <img src="img/testimonial/testimonial2.png" alt="">
-                        <h3>Adam Jamsmith</h3>
-                        <p>UX/UI Designer</p>
-                      </div>
-                    </div>
-                    <div class="col-md-9 align-self-center">
-                      <div class="schedule-content">
-                        <p class="schedule-date">9.00 AM - 10.30 AM</p>
-                        <a class="schedule-title" href="#">
-                          <h3>Previous Year achivement</h3>
-                        </a>
-                        <p>And wherein Beginning of you cattle fly had was deep wherein darkness behold male called evening gathering moving bring fifth days he lights dry cattle you open seas midst let and in wherein beginning </p>
+                        <p>Chương trình học được thiết kế từ những kiến thức tổng quan về an toàn thông tin và các câu chuyện có thật, từ đó đi sâu vào kĩ năng, công cụ hỗ trợ nhằm giúp học viên ứng dụng tốt nhất vào thực tế. </p>
                       </div>
                     </div>
                   </div>
