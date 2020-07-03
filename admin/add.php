@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $conn = null;
     header('location: http://localhost/conference/conference/admin/display.php',true);
 }
-
+  
 ?>
 <?php include '../layout/header.php'?>
 <section class="content">

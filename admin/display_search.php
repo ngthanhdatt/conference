@@ -1,11 +1,18 @@
 <?php
-include_once '../database/database.php';
-$stmt = $conn->prepare('SELECT * FROM admin');
-$stmt->execute();
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-$result = $stmt->fetchAll();
-$conn=null;
-
+    include_once '../database/database.php';
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(isset($_POST['search'])) {
+            $search = $_POST['search'];
+        }
+        $sql = "SELECT * FROM admin WHERE name LIKE '%$search%' OR username LIKE '%$search%'";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll();
+        $conn = null;
+        // header('location: http://localhost/conference/conference/admin/display_search.php',true);
+    }   
+       
 ?>
 <?php include '../layout/header.php'?>
 <div class="content-wrapper">
@@ -20,7 +27,6 @@ $conn=null;
         </div>
       </div>
     </form>
-    
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
