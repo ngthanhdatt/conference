@@ -141,7 +141,7 @@
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a class="d-block">Alexander Pierce</a>
+          <a class="d-block">Nguyễn Thành Đạt</a>
         </div>
       </div>
 
