@@ -16,7 +16,7 @@
 <?php include '../layout/header.php'?>
 <div class="content-wrapper">
     <section class="content">
-    <form class="form-inline ml-3" method="post" action="display_search.php">
+    <!--<form class="form-inline ml-3" method="post" action="display_search.php">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name="search">
         <div class="input-group-append">
@@ -25,7 +25,7 @@
           </button>
         </div>
       </div>
-    </form>
+    </form>-->
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">

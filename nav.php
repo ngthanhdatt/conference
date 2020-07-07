@@ -16,7 +16,7 @@
             </ul>
 
             <ul class="nav-right text-center text-lg-right py-4 py-lg-0">
-              <li><a href="price.html">MUA VÉ</a></li>
+              <li><a href="contact.php">MUA VÉ</a></li>
             </ul>
           </div> 
         </div>

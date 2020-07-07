@@ -1,29 +1,53 @@
 <?php
-$id = '';
-$name  = '';
-$phone = '';
-$email = '';
-$ticker = '';
+$id = ""; $idErr = "";
+$name  = ""; $nameErr = "";
+$phone = ""; $phoneErr = "";
+$email = ""; $emailErr = "";
+$ticker = ""; 
 
+include 'database/database.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{   
-    include 'database/database.php';
-    if(isset($_POST['name'])) {$name = $_POST['name'];}
-    if(isset($_POST['phone'])) {$phone = $_POST['phone'];}
-    if(isset($_POST['email'])) {$email = $_POST['email'];}
-    if(isset($_POST['ticker'])) {$ticker = $_POST['ticker'];}
-    
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+if(isset($_POST['submit'])) {
+  if ($_SERVER["REQUEST_METHOD"] == "POST"){   
+    if(empty($_POST['name'])) {
+      $nameErr = "nhap ten";
+    }else{
+      $name = test_input($_POST['name']);
+    }
+    if(empty($_POST['phone'])) {
+      $phoneErr = "nhap so dien thoai";
+    }else{
+      $phone = test_input($_POST['phone']);
+    }
+    if(empty($_POST['email'])) {
+      $emailErr = "nhap email";
+    }else{
+      $email = test_input($_POST['email']);
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "sai dinh dang email";
+      }
+    }
+    if(empty($_POST['ticker'])) {
+      $tickerErr = "chon gia ve";
+    }else{
+      $ticker = $_POST['ticker'];
+    }
+  }  
+
     $sql_create = "INSERT INTO customer (name, phone, email, ticker)
                 VALUES ('$name','$phone','$email','$ticker')";
     $conn->exec($sql_create);
-    $admin_id = $conn->lastInsertId();
     $conn = null;
     $msg = "Đăng kí thành công";
     echo "<script type='text/javascript'>alert('$msg');</script>";
-//     header('location: http://localhost/conference/conference/index.php',true);
-}
 
+  }
 ?>
 
 
@@ -152,26 +176,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       <div class="row">
         <div class="col-12">
           <h2 class="contact-title">Nhập thông tin</h2>
+          <p><span class="error">* mục bắt buộc</span></p>
         </div>
         <div class="col-lg-8">
-          <form class="form-contact contact_form" action="" method="post" id="contactForm" novalidate="novalidate" enctype="multipart/form-data">
+          <form class="form-contact contact_form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="contactForm" >
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
                   <label>Nhập họ tên của bạn</label>
-                  <input class="form-control" name="name" id="name" type="text" placeholder="tên của bạn">
+                  <input class="form-control" name="name" id="name" type="text" placeholder="tên của bạn" required>
+                  <span class="error">* <?php echo $nameErr;?></span>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                 <label>Nhập địa chỉ email</label>
-                  <input class="form-control" name="email" id="email" type="email" placeholder="Địa chỉ email của bạn">
+                  <input class="form-control" name="email" id="email" type="email" placeholder="Địa chỉ email của bạn" required>
+                  <span class="error">* <?php echo $emailErr;?></span>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                 <label>Nhập số điện thoại</label>
-                  <input class="form-control" name="phone" id="phone" type="text" placeholder="Điện thoại">
+                  <input class="form-control" name="phone" id="phone" type="text" placeholder="Điện thoại" required>
+                  <span class="error">* <?php echo $phoneErr;?></span>
                 </div>
               </div>
               <div class="col-sm-6">
@@ -186,7 +214,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
               </div>
             </div>
             <div class="form-group mt-3">
-              <button type="submit" class="button button-contactForm" name="them">Đăng kí tham gia</button>
+              <button type="submit" class="button button-contactForm" name="submit" value="Submit">Đăng kí tham gia</button>
             </div>
           </form>
         </div>
