@@ -31,7 +31,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Danh Sách Diễn Giả </h3>
+                <h3 class="card-title">Danh Sách Diễn Giả Cần Tìm: &nbsp<?php echo count($result);?></h3>
               </div>
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">

@@ -2,13 +2,14 @@
 $id = '';
 $name  = '';
 $phone = '';
-$email = '';
+$email = ''; $emailErr = "";
 $ticker = '';
 
+include '../database/database.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{   
-    include '../database/database.php';
+
+if(isset($_POST['submit'])) {
+  if ($_SERVER["REQUEST_METHOD"] == "POST"){   
     if(isset($_POST['name'])) {$name = $_POST['name'];}
     if(isset($_POST['phone'])) {$phone = $_POST['phone'];}
     if(isset($_POST['email'])) {$email = $_POST['email'];}
@@ -19,9 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $sql_create = "INSERT INTO customer (name, phone, email, ticker)
                 VALUES ('$name','$phone','$email','$ticker')";
     $conn->exec($sql_create);
-    $admin_id = $conn->lastInsertId();
     $conn = null;
     header('location: http://localhost/conference/conference/customer/display.php',true);
+  }
 }
 
 ?>
@@ -35,27 +36,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 <h3 class="card-title">Thêm khách tham dự</h3>
               </div>
               
-              <form  action="" method="post" enctype="multipart/form-data">
+              <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="form-group">
                 <label for="exampleInputName">Tên đầy đủ</label>
-                  <input type="text" class="form-control"  placeholder="Tên đầy đủ" name="name">
+                  <input type="text" class="form-control"  placeholder="Tên đầy đủ" name="name" required>
                 </div>
                 <div class="form-group">
                 <label for="exampleInputPhone">Điện thoại</label>
-                <input type="text" class="form-control"  placeholder="Điện thoại" name="phone">
+                <input type="text" class="form-control"  placeholder="Điện thoại" name="phone" required>
                 </div>
                 <div class="form-group">
                 <label for="exampleInputEmail1">Địa chỉ Email</label>
-                  <input type="email" class="form-control"  placeholder="Email" name="email">
+                  <input type="email" class="form-control"  placeholder="Email" name="email" required>
                 </div>
                 <div class="form-group">
                 <label for="exampleInputEmail1">Loại vé</label>
-                  <input type="text" class="form-control"  placeholder="Loại vé" name="ticker">
+                  <input type="text" class="form-control"  placeholder="Loại vé" name="ticker" required>
                 </div>
                 </div>
                 <div class="card-footer">
-                <button type="submit" class="btn btn-primary" name="them">Submit</button>
+                <button type="submit" class="btn btn-primary" name="submit" value="Submit">Submit</button>
                 </div>
               </form>
             </div>

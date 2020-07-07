@@ -2,7 +2,7 @@
 $id = '';
 $name  = '';
 $phone = '';
-$email = '';
+$email = ''; 
 $pro = '';
 $CCCC = '';
 
@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $sql_create = "INSERT INTO speaker (name, phone, email, professional,CCCC)
                 VALUES ('$name','$phone','$email','$pro','$CCCC')";
     $conn->exec($sql_create);
-    $admin_id = $conn->lastInsertId();
     $conn = null;
     header('location: http://localhost/conference/conference/speaker/display.php',true);
 }
@@ -41,27 +40,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 <div class="card-body">
                     <div class="form-group">
                 <label for="exampleInputName">Tên đầy đủ</label>
-                  <input type="text" class="form-control"  placeholder="Tên đầy đủ" name="name">
+                  <input type="text" class="form-control"  placeholder="Tên đầy đủ" name="name" required>
                 </div>
                 <div class="form-group">
                 <label for="exampleInputPhone">Điện thoại</label>
-                <input type="text" class="form-control"  placeholder="Điện thoại" name="phone">
+                <input type="text" class="form-control"  placeholder="Điện thoại" name="phone" required>
                 </div>
                 <div class="form-group">
                 <label for="exampleInputEmail1">Địa chỉ Email</label>
-                  <input type="email" class="form-control"  placeholder="Email" name="email">
+                  <input type="email" class="form-control"  placeholder="Email" name="email" required>
                 </div>
                 <div class="form-group">
                 <label for="exampleInputEmail1">Chuyên Ngành</label>
-                  <input type="text" class="form-control"  placeholder="Chuyên ngành" name="professional">
+                  <input type="text" class="form-control"  placeholder="Chuyên ngành" name="professional" required>
                 </div>
                 <div class="form-group">
                 <label for="exampleInputEmail1">Số căn cước công dân</label>
-                  <input type="text" class="form-control"  placeholder="Số căn cước" name="CCCC">
+                  <input type="text" class="form-control"  placeholder="Số căn cước" name="CCCC" required>
                 </div>
                 </div>
                 <div class="card-footer">
-                <button type="submit" class="btn btn-primary" name="them">Submit</button>
+                <button type="submit" class="btn btn-primary" name="submit" value="Submit">Submit</button>
                 </div>
               </form>
             </div>

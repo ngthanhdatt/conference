@@ -46,8 +46,9 @@ if(isset($_POST['submit'])) {
     $conn = null;
     $msg = "Đăng kí thành công";
     echo "<script type='text/javascript'>alert('$msg');</script>";
+    //header('location: http://localhost/conference/conference/index.php',true);
 
-  }
+}
 ?>
 
 
