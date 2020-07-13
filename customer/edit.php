@@ -1,9 +1,5 @@
 <?php
-$id = '';
-$name = '';
-$phone = '';
-$email = '';
-$ticker = '';
+include_once '../database/database.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     if(isset($_GET['id'])) {$id = $_GET['id'];}
@@ -12,13 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if(isset($_POST['email'])) {$email = $_POST['email'];}
     if(isset($_POST['ticker'])) {$ticker = $_POST['ticker'];}
 
-    include_once '../database/database.php';
-    $sql = "UPDATE admin  
+
+    $sql = "UPDATE customer 
             SET ID = '$id',
                 name = '$name',
                 phone = '$phone',
                 email = '$email',
-                ticker = '$ticker
+                ticker = '$ticker'
             WHERE ID = '$id'";
     $process = $conn->prepare($sql);
     $process->execute();
@@ -26,6 +22,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     header('location: http://localhost/conference/conference/customer/display.php',true);
 
 }
+?>
+<?php
+  $id = $_GET['id'];
+  $sql = "SELECT * FROM customer WHERE ID='$id'";
+  $query = $conn->prepare($sql);
+  $query->execute(array('ID' => $id));
+   
+  while($row = $query->fetch(PDO::FETCH_ASSOC))
+  {
+      $name = $row['name'];
+      $phone = $row['phone'];
+      $email = $row['email'];
+      $ticker = $row['ticker'];
+  }
 ?>
 <?php include '../layout/header.php'?>
 <section class="content">
@@ -45,23 +55,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                   </div>  
                     <div class="form-group">
                 <label for="exampleInputName">Tên đầy đủ</label>
-                  <input type="text" class="form-control"  placeholder="Tên đầy đủ" name="name">
+                  <input type="text" class="form-control" value="<?php echo $name?>" name="name">
                 </div>
                 <div class="form-group">
                 <label for="exampleInputPhone">Điện thoại</label>
-                <input type="text" class="form-control"  placeholder="Điện thoại" name="phone">
+                <input type="text" class="form-control"  value="<?php echo $phone?>" name="phone">
                 </div>
                 <div class="form-group">
                 <label for="exampleInputEmail1">Địa chỉ Email</label>
-                  <input type="email" class="form-control"  placeholder="Email" name="email">
+                  <input type="email" class="form-control" value="<?php echo $email?>" name="email">
                 </div>
                 <div class="form-group">
                 <label for="exampleInputName">Loại Vé</label>
-                  <input type="text" class="form-control"  placeholder="Loại vé" name="ticker">
+                  <input type="text" class="form-control" value="<?php echo $ticker?>" name="ticker">
                 </div>
                 </div>
                 <div class="card-footer">
-                <button type="submit" class="btn btn-primary" name="them">Submit</button>
+                <button type="submit" class="btn btn-primary" name="them">Thêm</button>
                 </div>
               </form>
             </div>

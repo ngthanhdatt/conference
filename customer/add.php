@@ -56,7 +56,7 @@ if(isset($_POST['submit'])) {
                 </div>
                 </div>
                 <div class="card-footer">
-                <button type="submit" class="btn btn-primary" name="submit" value="Submit">Submit</button>
+                <button type="submit" class="btn btn-primary" name="submit" value="Submit">Thêm</button>
                 </div>
               </form>
             </div>

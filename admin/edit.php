@@ -1,10 +1,5 @@
 <?php
-$id = '';
-$username = '';
-$password = '';
-$name = '';
-$phone = '';
-$email = '';
+include_once '../database/database.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     if(isset($_GET['id'])) {$id = $_GET['id'];}
@@ -14,7 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if(isset($_POST['phone'])) {$phone = $_POST['phone'];}
     if(isset($_POST['email'])) {$email = $_POST['email'];}
 
-    include_once '../database/database.php';
     $sql = "UPDATE admin
             SET ID = '$id',
                 username = '$username',
@@ -23,13 +17,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 phone = '$phone',
                 email = '$email'
             WHERE ID = '$id'";
-//    var_dump($sql);
     $process = $conn->prepare($sql);
     $process->execute();
     $conn = null;
     header('location: http://localhost/conference/conference/admin/display.php',true);
 
 }
+?>
+<?php
+  $id = $_GET['id'];
+  $sql = "SELECT * FROM admin WHERE ID='$id'";
+  $query = $conn->prepare($sql);
+  $query->execute(array('ID' => $id));
+   
+  while($row = $query->fetch(PDO::FETCH_ASSOC))
+  {
+      $username = $row['username'];
+      $password = $row['password'];
+      $name = $row['name'];
+      $phone = $row['phone'];
+      $email = $row['email'];
+  }
 ?>
 <?php include '../layout/header.php'?>
 <section class="content">
@@ -49,27 +57,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                   </div>  
                 <div class="form-group">
                 <label for="exampleInputUsername">Tên Đăng Nhập</label>
-                <input type="text" class="form-control"  placeholder="Tên đăng nhập" name="username">
+                <input type="text" class="form-control" value="<?php echo $username?>" name="username">
                   </div>      
                   <div class="form-group">
                 <label for="exampleInputPassword1">Mật Khẩu</label>
-                  <input type="password" class="form-control"  placeholder="Mật khẩu" name="password">
+                  <input type="password" class="form-control" value="<?php echo $password?>" name="password">
                </div>
                     <div class="form-group">
                 <label for="exampleInputName">Tên đầy đủ</label>
-                  <input type="text" class="form-control"  placeholder="Tên đầy đủ" name="name">
+                  <input type="text" class="form-control" value="<?php echo $name?>" name="name">
                 </div>
                 <div class="form-group">
                 <label for="exampleInputPhone">Điện thoại</label>
-                <input type="text" class="form-control"  placeholder="Điện thoại" name="phone">
+                <input type="text" class="form-control" value="<?php echo $phone?>" name="phone">
                 </div>
                 <div class="form-group">
                 <label for="exampleInputEmail1">Địa chỉ Email</label>
-                  <input type="email" class="form-control"  placeholder="Email" name="email">
+                  <input type="email" class="form-control" value="<?php echo $email?>" name="email">
                 </div>
                 </div>
                 <div class="card-footer">
-                <button type="submit" class="btn btn-primary" name="them">Submit</button>
+                <button type="submit" class="btn btn-primary" name="submit">Thêm</button>
                 </div>
               </form>
             </div>

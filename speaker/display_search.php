@@ -4,7 +4,7 @@
         if(isset($_POST['search'])) {
             $search = $_POST['search'];
         }
-        $sql = "SELECT * FROM speaker WHERE name LIKE '%$search%' OR professional LIKE '%$search%'";
+        $sql = "SELECT * FROM speaker WHERE name LIKE '%$search%' OR professional LIKE '%$search%' OR hotel LIKE '%$search%'";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -43,6 +43,7 @@
                     <th>Email</th>
                     <th>Professional</th>
                     <th>CCCC</th>
+                    <th>Hotel</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -55,8 +56,9 @@
                     <td><?php echo $item['email'] ?></td>
                     <td><?php echo $item['professional'] ?></td>
                     <td><?php echo $item['CCCC'] ?></td>
+                    <td><?php echo $item['hotel'] ?></td>
                     <td><a href="edit.php?id=<?php echo $item['ID']?>" class="btn btn-success" role="button">Sửa</button>
-                    <a href="delete.php?id=<?php echo $item['ID']?>" class="btn btn-danger" role="button">Delete</a>
+                    <a href="delete.php?id=<?php echo $item['ID']?>" class="btn btn-danger" role="button">Xóa</a>
                     </td>
                   </tr>
                   </tbody>  

@@ -48,7 +48,7 @@ $conn = null;
                     <td><?php echo $item['email'] ?></td>
                     <td><?php echo $item['ticker'] ?></td>
                     <td><a href="edit.php?id=<?php echo $item['ID']?>" class="btn btn-success" role="button">Sửa</button>
-                    <a href="delete.php?id=<?php echo $item['ID']?>" class="btn btn-danger" role="button">Delete</a>
+                    <a href="delete.php?id=<?php echo $item['ID']?>" class="btn btn-danger" role="button">Xóa</a>
                     </td>
                   </tr>
                   </tbody>  
@@ -60,5 +60,5 @@ $conn = null;
         </div>
       </div>
     </section>
-  </div>
+</div>
 <?php include '../layout/footer.php'?>

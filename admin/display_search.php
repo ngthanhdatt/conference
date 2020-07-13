@@ -57,7 +57,7 @@
                     <td><?php echo $item['phone'] ?></td>
                     <td><?php echo $item['email'] ?></td>
                     <td><a href="edit.php?id=<?php echo $item['ID']?>" class="btn btn-success" role="button">Sửa</button>
-                    <a href="delete.php?id=<?php echo $item['ID']?>" class="btn btn-danger" role="button">Delete</a>
+                    <a href="delete.php?id=<?php echo $item['ID']?>" class="btn btn-danger" role="button">Xóa</a>
                     </td>
                   </tr>
                   </tbody>  

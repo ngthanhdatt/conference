@@ -1,8 +1,8 @@
 <?php
+include_once '../database/database.php';
 $username = '';
 $password = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include_once '../database/database.php';
     if (isset($_POST['username'])) {
         $username = $_POST['username'];
     }

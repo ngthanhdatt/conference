@@ -5,6 +5,7 @@ $phone = '';
 $email = ''; 
 $pro = '';
 $CCCC = '';
+$hotel = '';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -15,11 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if(isset($_POST['email'])) {$email = $_POST['email'];}
     if(isset($_POST['professional'])) {$pro = $_POST['professional'];}
     if(isset($_POST['CCCC'])) {$CCCC = $_POST['CCCC'];}
+    if(isset($_POST['hotel'])) {$hotel = $_POST['hotel'];}
     
 
 
     $sql_create = "INSERT INTO speaker (name, phone, email, professional,CCCC)
-                VALUES ('$name','$phone','$email','$pro','$CCCC')";
+                VALUES ('$name','$phone','$email','$pro','$CCCC','$hotel')";
     $conn->exec($sql_create);
     $conn = null;
     header('location: http://localhost/conference/conference/speaker/display.php',true);
@@ -58,9 +60,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 <label for="exampleInputEmail1">Số căn cước công dân</label>
                   <input type="text" class="form-control"  placeholder="Số căn cước" name="CCCC" required>
                 </div>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Chuyên Ngành</label>
+                  <input type="text" class="form-control"  placeholder="Khách sạn" name="hotel" required>
+                </div>
                 </div>
                 <div class="card-footer">
-                <button type="submit" class="btn btn-primary" name="submit" value="Submit">Submit</button>
+                <button type="submit" class="btn btn-primary" name="submit">Thêm</button>
                 </div>
               </form>
             </div>
