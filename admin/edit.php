@@ -1,5 +1,11 @@
 <?php
-include_once '../database/database.php';
+session_start();
+include_once '../database/database.php';	
+if(isset($_SESSION["username"])){
+    include '../layout/header.php';
+}else{
+    header("location:../login/login.php");
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     if(isset($_GET['id'])) {$id = $_GET['id'];}
@@ -39,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       $email = $row['email'];
   }
 ?>
-<?php include '../layout/header.php'?>
+
 <section class="content">
       <div class="container-fluid">
         <div class="row">

@@ -1,8 +1,8 @@
 <?php
+session_start();
 include_once '../database/database.php';
-$username = '';
-$password = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if(isset($_POST['login'])){
     if (isset($_POST['username'])) {
         $username = $_POST['username'];
     }
@@ -10,22 +10,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST['password'];
     }
 
-    $stmt_login = $conn->prepare("SELECT * FROM admin WHERE username = '$username'");
-    $stmt_login->execute();
-    $stmt_login->setFetchMode(PDO::FETCH_ASSOC);
-    $admin = $stmt_login->fetch();
-    $conn = null;
-    if ($admin['password'] == $password) {
-        header('location: http://localhost/conference/conference/admin/display.php',true);
+    $stmt_login = $conn->prepare("SELECT username, password FROM admin WHERE username = ? AND password = ? ");
+    $stmt_login->execute(array($username, $password));
+    if($stmt_login->rowCount() >= 1) {
+      $_SESSION['username'] = $username;
+      header("location: ../layout/mainAdmin.php");
+    } else {
+      $messeg = "Username/Password is wrong";
     }
-    else{
-      $msg = "sai mật khẩu";
-      echo '<script type="text/javascript">alert("' . $msg . '")</script>';
-    }
+  }
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html>

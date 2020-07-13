@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,12 +20,7 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="../login/login.php" class="nav-link">Logout</a>
-      </li>
+
     </ul>
 
     <form class="form-inline ml-3" method="post" action="display_search.php">
@@ -50,7 +46,7 @@
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a class="d-block">Nguyễn Thành Đạt</a>
+          <a class="d-block"><?php echo '' .$_SESSION["username"].'';?></a>
         </div>
       </div>
 
@@ -112,6 +108,21 @@
               <li class="nav-item">
                 <a href="../speaker/add.php" class="nav-link">
                   <p>Thêm</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview menu-open">
+            <a class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                  Đăng xuất                 
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../login/logout.php" class="nav-link">
+                  <p>Đăng xuất</p>
                 </a>
               </li>
             </ul>

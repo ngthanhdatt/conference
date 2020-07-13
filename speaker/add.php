@@ -1,4 +1,11 @@
 <?php
+session_start();
+include_once '../database/database.php';	
+if(isset($_SESSION["username"])){
+    include '../layout/header.php';
+}else{
+    header("location:../login/login.php");
+}
 $id = '';
 $name  = '';
 $phone = '';
@@ -10,7 +17,6 @@ $hotel = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {   
-    include '../database/database.php';
     if(isset($_POST['name'])) {$name = $_POST['name'];}
     if(isset($_POST['phone'])) {$phone = $_POST['phone'];}
     if(isset($_POST['email'])) {$email = $_POST['email'];}
@@ -18,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if(isset($_POST['CCCC'])) {$CCCC = $_POST['CCCC'];}
     if(isset($_POST['hotel'])) {$hotel = $_POST['hotel'];}
     
-
 
     $sql_create = "INSERT INTO speaker (name, phone, email, professional,CCCC)
                 VALUES ('$name','$phone','$email','$pro','$CCCC','$hotel')";
@@ -28,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 }
 
 ?>
-<?php include '../layout/header.php'?>
+
 <section class="content">
       <div class="container-fluid">
         <div class="row">

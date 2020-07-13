@@ -1,5 +1,11 @@
 <?php
-    include_once '../database/database.php';
+session_start();
+include_once '../database/database.php';	
+if(isset($_SESSION["username"])){
+    include '../layout/header.php';
+}else{
+    header("location:../login/login.php");
+}
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if(isset($_POST['search'])) {
             $search = $_POST['search'];
@@ -14,7 +20,7 @@
     }   
        
 ?>
-<?php include '../layout/header.php'?>
+
 <div class="content-wrapper">
     <section class="content">
     <!--<form class="form-inline ml-3" method="post" action="display_search.php">
