@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include_once '../database/database.php';	
 if(isset($_SESSION["username"])){
@@ -6,6 +7,21 @@ if(isset($_SESSION["username"])){
 }else{
     header("location:../login/login.php");
 }
+
+$id = $_GET['id'];
+  $sqlEdit = "SELECT * FROM customer WHERE ID='$id'";
+  $query = $conn->prepare($sqlEdit);
+  $query->execute(array('ID' => $id));
+   
+  while($row = $query->fetch(PDO::FETCH_ASSOC))
+  {
+      $name = $row['name'];
+      $phone = $row['phone'];
+      $email = $row['email'];
+      $ticker = $row['ticker'];
+  }
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     if(isset($_GET['id'])) {$id = $_GET['id'];}
@@ -25,24 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $process = $conn->prepare($sql);
     $process->execute();
     $conn = null;
-    header('location: http://localhost/conference/conference/customer/display.php',true);
-
+    
+    header('location: display.php',true);
 }
+ob_end_flush();
 ?>
-<?php
-  $id = $_GET['id'];
-  $sql = "SELECT * FROM customer WHERE ID='$id'";
-  $query = $conn->prepare($sql);
-  $query->execute(array('ID' => $id));
-   
-  while($row = $query->fetch(PDO::FETCH_ASSOC))
-  {
-      $name = $row['name'];
-      $phone = $row['phone'];
-      $email = $row['email'];
-      $ticker = $row['ticker'];
-  }
-?>
+
 
 <section class="content">
       <div class="container-fluid">
@@ -77,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 </div>
                 </div>
                 <div class="card-footer">
-                <button type="submit" class="btn btn-primary" name="them">Thêm</button>
+                <button type="submit" class="btn btn-primary" name="submit">Thêm</button>
                 </div>
               </form>
             </div>

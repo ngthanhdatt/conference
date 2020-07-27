@@ -10,14 +10,17 @@ $stmtAdmin = $conn->prepare('SELECT * FROM admin');
 $stmtAdmin->execute();
 $stmtAdmin->setFetchMode(PDO::FETCH_ASSOC);
 $resultAdmin = $stmtAdmin->fetchAll();
+
 $stmtCus = $conn->prepare('SELECT * FROM customer');
 $stmtCus->execute();
 $stmtCus->setFetchMode(PDO::FETCH_ASSOC);
 $resultCus = $stmtCus->fetchAll();
+
 $stmtSpeak = $conn->prepare('SELECT * FROM speaker');
 $stmtSpeak->execute();
 $stmtSpeak->setFetchMode(PDO::FETCH_ASSOC);
 $resultSpeak = $stmtSpeak->fetchAll();
+
 $conn = null;
 ?>
 

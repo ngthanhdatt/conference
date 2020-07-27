@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include_once '../database/database.php';	
 if(isset($_SESSION["username"])){
@@ -6,6 +7,22 @@ if(isset($_SESSION["username"])){
 }else{
     header("location:../login/login.php");
 }
+
+
+$id = $_GET['id'];
+$sqlEdit = "SELECT * FROM speaker WHERE ID='$id'";
+$query = $conn->prepare($sqlEdit);
+$query->execute(array('ID' => $id));
+while($row = $query->fetch(PDO::FETCH_ASSOC))
+{
+    $name = $row['name'];
+    $phone = $row['phone'];
+    $email = $row['email'];
+    $pro = $row['professional'];
+    $CCCC = $row['CCCC'];
+    $hotel = $row['hotel'];
+}
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -15,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if(isset($_POST['email'])) {$email = $_POST['email'];}
     if(isset($_POST['professional'])) {$pro = $_POST['professional'];}
     if(isset($_POST['CCCC'])) {$CCCC = $_POST['CCCC'];}
-    if(isset($_POST['hotel'])) {$CCCC = $_POST['hotel'];}
+    if(isset($_POST['hotel'])) {$hotel = $_POST['hotel'];}
 
     $sql = "UPDATE speaker  
             SET ID = '$id',
@@ -29,24 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $process = $conn->prepare($sql);
     $process->execute();
     $conn = null;
-    header('location: http://localhost/conference/conference/speaker/display.php',true);
+    $message = "cập nhật thành công";
+    echo "<script type='text/javascript'>alert('$message');</script>";
+    header('location: display.php',true);
 }
-?>
-<?php
-  $id = $_GET['id'];
-  $sql = "SELECT * FROM speaker WHERE ID='$id'";
-  $query = $conn->prepare($sql);
-  $query->execute(array('ID' => $id));
-   
-  while($row = $query->fetch(PDO::FETCH_ASSOC))
-  {
-      $name = $row['name'];
-      $phone = $row['phone'];
-      $email = $row['email'];
-      $pro = $row['professional'];
-      $CCCC = $row['CCCC'];
-      $hotel = $row['hotel'];
-  }
+ob_end_flush();
 ?>
 
 <section class="content">
@@ -77,15 +81,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                   <input type="email" class="form-control"  name="email" value="<?php echo $email?>">
                 </div>
                 <div class="form-group">
-                <label for="exampleInputName">Chuyên ngành</label>
+                <label for="exampleInputPro">Chuyên ngành</label>
                   <input type="text" class="form-control" name="professional" value="<?php echo $pro?>">
                 </div>
                 <div class="form-group">
-                <label for="exampleInputName">Số căn cước công dân</label>
+                <label for="exampleInputCCCC">Số căn cước công dân</label>
                   <input type="text" class="form-control" name="CCCC" value="<?php echo $CCCC?>">
                 </div>
                 <div class="form-group">
-                <label for="exampleInputName">Khách sạn</label>
+                <label for="exampleInputHotel">Khách sạn</label>
                   <input type="text" class="form-control" name="hotel" value="<?php echo $hotel?>">
                 </div>
                 </div>
